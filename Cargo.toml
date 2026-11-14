@@ -1,0 +1,21 @@
+[package]
+name = "fire-harmonizer"
+version = "3.0.0"
+edition = "2021"
+description = "Гармонізація MODIS ↔ VIIRS S-NPP для Fire Calendar (NASA Space Apps 2026)"
+
+# Без зовнішніх залежностей: gzip реалізовано на чистому Rust (src/gz.rs) — працює і на Windows.
+
+[[bin]]
+name = "harmonize"
+path = "src/main.rs"
+
+[[bin]]
+name = "check"
+path = "src/bin/check.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
